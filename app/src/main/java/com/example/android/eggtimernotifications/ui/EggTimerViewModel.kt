@@ -32,6 +32,7 @@ import kotlinx.coroutines.*
 
 class EggTimerViewModel(private val app: Application) : AndroidViewModel(app) {
 
+
     private val REQUEST_CODE = 0
     private val TRIGGER_TIME = "TRIGGER_AT"
 
@@ -82,6 +83,16 @@ class EggTimerViewModel(private val app: Application) : AndroidViewModel(app) {
         if (_alarmOn.value!!) {
             createTimer()
         }
+
+        // EggTimerViewModel.kt
+// TODO: Step 1.5 get an instance of NotificationManager
+// and call sendNotification
+
+        val notificationManager = ContextCompat.getSystemService(
+            app,
+            NotificationManager::class.java
+        ) as NotificationManager
+        notificationManager.sendNotification(app.getString(R.string.timer_running), app)
 
     }
 

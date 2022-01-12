@@ -71,6 +71,7 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
     // Build the notification
     val builder = NotificationCompat.Builder(
         applicationContext,
+        // TODO: Step 1.8 verify the notification channel name
         applicationContext.getString(R.string.egg_notification_channel_id)
     )
 
@@ -103,11 +104,13 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
     notify(NOTIFICATION_ID, builder.build())
 }
 
+
 // TODO: Step 1.14 Cancel all notifications
 /**
  * Cancels all notifications.
  *
  */
+
 fun NotificationManager.cancelNotifications() {
     cancelAll()
 }

@@ -59,6 +59,7 @@ class EggTimerFragment : Fragment() {
         return binding.root
     }
 
+    //EggTimerFragment.kt
     private fun createChannel(channelId: String, channelName: String) {
         // TODO: Step 1.6 START create a channel
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -66,24 +67,21 @@ class EggTimerFragment : Fragment() {
                 channelId,
                 channelName,
                 // TODO: Step 2.4 change importance
-                NotificationManager.IMPORTANCE_HIGH
-            )// TODO: Step 2.6 disable badges for this channel
-                .apply {
-                    setShowBadge(false)
-                }
+                NotificationManager.IMPORTANCE_LOW
+            )
+            // TODO: Step 2.6 disable badges for this channel
 
             notificationChannel.enableLights(true)
             notificationChannel.lightColor = Color.RED
             notificationChannel.enableVibration(true)
-            notificationChannel.description = getString(R.string.breakfast_notification_channel_description)
+            notificationChannel.description = "Time for breakfast"
 
-            val notificationManager = requireActivity().getSystemService(
+            /*val notificationManager = requireActivity().getSystemService(
                 NotificationManager::class.java
             )
-            notificationManager.createNotificationChannel(notificationChannel)
-
+            notificationManager.createNotificationChannel(notificationChannel)*/
         }
-        // TODO: Step 1.6 END create a channel
+        // TODO: Step 1.6 END create channel
     }
 
     companion object {
